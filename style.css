@@ -1,0 +1,330 @@
+:root {
+  --bg-color: #f7f4ef;
+  --card-shadow: 0 8px 20px rgba(0, 0, 0, 0.07);
+  --text-primary: #2d2a26;
+  --text-secondary: #6e6a64;
+  --accent: #ff6b4a;
+  --accent-hover: #e85838;
+
+  /* 포스트잇 색상 팔레트 */
+  --note-yellow: #fff6b3;
+  --note-pink: #ffd6e0;
+  --note-blue: #d4f0ff;
+  --note-green: #dcfce7;
+  --note-purple: #ede9fe;
+}
+
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+body {
+  font-family: 'Pretendard', -apple-system, BlinkMacSystemFont, sans-serif;
+  background-color: var(--bg-color);
+  background-image: radial-gradient(#dcd6cc 1px, transparent 1px);
+  background-size: 24px 24px;
+  color: var(--text-primary);
+  min-height: 100vh;
+  padding: 40px 20px 80px;
+}
+
+.container {
+  max-width: 1040px;
+  margin: 0 auto;
+}
+
+/* 헤더 영역 */
+.header {
+  text-align: center;
+  margin-bottom: 32px;
+}
+
+.badge {
+  display: inline-block;
+  background: #ffe4dc;
+  color: var(--accent);
+  font-size: 12px;
+  font-weight: 700;
+  padding: 5px 12px;
+  border-radius: 999px;
+  letter-spacing: 0.06em;
+  margin-bottom: 12px;
+}
+
+.header h1 {
+  font-size: 2.2rem;
+  font-weight: 700;
+  margin-bottom: 8px;
+}
+
+.subtitle {
+  color: var(--text-secondary);
+  font-size: 1rem;
+}
+
+/* 미연결 안내 배너 */
+.setup-notice {
+  background: #fff3cd;
+  border: 1px solid #ffe69c;
+  color: #664d03;
+  padding: 16px 20px;
+  border-radius: 14px;
+  margin-bottom: 24px;
+  font-size: 0.92rem;
+  line-height: 1.5;
+}
+
+.setup-notice code {
+  background: rgba(0, 0, 0, 0.06);
+  padding: 2px 6px;
+  border-radius: 4px;
+  font-weight: 600;
+}
+
+/* 작성 폼 영역 */
+.write-section {
+  background: #ffffff;
+  border-radius: 20px;
+  padding: 28px;
+  box-shadow: var(--card-shadow);
+  margin-bottom: 40px;
+  border: 1px solid rgba(0, 0, 0, 0.04);
+}
+
+.form-row {
+  display: flex;
+  gap: 20px;
+  flex-wrap: wrap;
+  margin-bottom: 18px;
+}
+
+.input-group {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+  flex: 1;
+  min-width: 220px;
+}
+
+.input-group label {
+  font-size: 0.9rem;
+  font-weight: 600;
+  color: var(--text-primary);
+}
+
+.input-group input,
+.input-group textarea {
+  width: 100%;
+  padding: 12px 15px;
+  border: 1.5px solid #e5e0d8;
+  border-radius: 12px;
+  font-size: 0.98rem;
+  font-family: inherit;
+  transition: border-color 0.2s, box-shadow 0.2s;
+  background: #fdfcfb;
+}
+
+.input-group input:focus,
+.input-group textarea:focus {
+  outline: none;
+  border-color: var(--accent);
+  box-shadow: 0 0 0 3px rgba(255, 107, 74, 0.15);
+}
+
+/* 색상 선택 버튼 */
+.color-picker {
+  display: flex;
+  gap: 10px;
+  align-items: center;
+  height: 44px;
+}
+
+.color-btn {
+  width: 34px;
+  height: 34px;
+  border-radius: 50%;
+  border: 2px solid rgba(0, 0, 0, 0.12);
+  cursor: pointer;
+  transition: transform 0.15s, border-color 0.15s;
+}
+
+.color-btn:hover {
+  transform: scale(1.1);
+}
+
+.color-btn.active {
+  border: 3px solid var(--text-primary);
+  transform: scale(1.15);
+}
+
+.color-btn.yellow { background-color: var(--note-yellow); }
+.color-btn.pink   { background-color: var(--note-pink); }
+.color-btn.blue   { background-color: var(--note-blue); }
+.color-btn.green  { background-color: var(--note-green); }
+.color-btn.purple { background-color: var(--note-purple); }
+
+.submit-btn {
+  margin-top: 18px;
+  width: 100%;
+  padding: 14px;
+  background-color: var(--accent);
+  color: #ffffff;
+  font-size: 1.05rem;
+  font-weight: 700;
+  border: none;
+  border-radius: 12px;
+  cursor: pointer;
+  transition: background-color 0.2s, transform 0.1s;
+}
+
+.submit-btn:hover {
+  background-color: var(--accent-hover);
+}
+
+.submit-btn:active {
+  transform: scale(0.99);
+}
+
+.submit-btn:disabled {
+  background-color: #ccc5bc;
+  cursor: not-allowed;
+}
+
+/* 보드 상단 바 */
+.board-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 20px;
+}
+
+.board-header h2 {
+  font-size: 1.3rem;
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+
+.count-badge {
+  background: var(--text-primary);
+  color: #fff;
+  font-size: 0.85rem;
+  padding: 2px 10px;
+  border-radius: 999px;
+}
+
+.refresh-btn {
+  background: #ffffff;
+  border: 1px solid #e2ddd5;
+  padding: 8px 14px;
+  border-radius: 10px;
+  font-size: 0.9rem;
+  font-weight: 600;
+  cursor: pointer;
+  transition: background 0.15s;
+}
+
+.refresh-btn:hover {
+  background: #f0ece4;
+}
+
+/* 포스트잇 그리드 보드 */
+.memo-board {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(240px, 1fr));
+  gap: 22px;
+}
+
+.note-card {
+  position: relative;
+  padding: 24px 20px 20px;
+  border-radius: 6px 6px 18px 6px;
+  box-shadow: 0 6px 15px rgba(0, 0, 0, 0.08);
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  min-height: 200px;
+  transition: transform 0.2s ease, box-shadow 0.2s ease;
+  font-family: 'Gowun Dodum', sans-serif;
+  word-break: break-word;
+}
+
+/* 상단 압정/테이프 효과 */
+.note-card::before {
+  content: '';
+  position: absolute;
+  top: -8px;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 60px;
+  height: 20px;
+  background: rgba(255, 255, 255, 0.65);
+  border: 1px solid rgba(0, 0, 0, 0.05);
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.04);
+}
+
+.note-card:nth-child(odd) {
+  transform: rotate(-1.2deg);
+}
+
+.note-card:nth-child(even) {
+  transform: rotate(1.2deg);
+}
+
+.note-card:hover {
+  transform: translateY(-6px) rotate(0deg);
+  box-shadow: 0 12px 24px rgba(0, 0, 0, 0.13);
+  z-index: 2;
+}
+
+.note-card.yellow { background-color: var(--note-yellow); }
+.note-card.pink   { background-color: var(--note-pink); }
+.note-card.blue   { background-color: var(--note-blue); }
+.note-card.green  { background-color: var(--note-green); }
+.note-card.purple { background-color: var(--note-purple); }
+
+.note-content {
+  font-size: 1.08rem;
+  line-height: 1.6;
+  white-space: pre-wrap;
+  margin-bottom: 18px;
+  color: #222;
+}
+
+.note-footer {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  border-top: 1px dashed rgba(0, 0, 0, 0.12);
+  padding-top: 10px;
+  font-size: 0.88rem;
+  color: rgba(0, 0, 0, 0.65);
+}
+
+.note-author {
+  font-weight: 700;
+  color: #111;
+}
+
+.loading,
+.empty-state {
+  grid-column: 1 / -1;
+  text-align: center;
+  padding: 60px 20px;
+  color: var(--text-secondary);
+  background: rgba(255, 255, 255, 0.6);
+  border-radius: 16px;
+  border: 2px dashed #dcd6cc;
+}
+
+@media (max-width: 600px) {
+  .header h1 {
+    font-size: 1.75rem;
+  }
+  .write-section {
+    padding: 20px;
+  }
+}
+

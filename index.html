@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>마음을 전하는 디지털 롤링 페이퍼</title>
+  <!-- 감성적인 한글 폰트 (Pretendard & 교보 손글씨 느낌의 Gowun Dodum) -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Gowun+Dodum&family=Pretendard:wght@400;600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="style.css" />
+  <!-- Supabase 공식 브라우저 SDK 불러오기 -->
+  <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
+</head>
+<body>
+  <div class="container">
+    <!-- 상단 헤더 -->
+    <header class="header">
+      <div class="badge">PUBLIC ROLLING PAPER</div>
+      <h1>💌 디지털 롤링 페이퍼</h1>
+      <p class="subtitle">방문해 주셔서 감사합니다! 따뜻한 한마디를 포스트잇에 남겨주세요.</p>
+    </header>
+
+    <!-- Supabase 미연결 시 안내 배너 (연결되면 자동으로 숨겨집니다) -->
+    <div id="setupNotice" class="setup-notice" style="display: none;">
+      <strong>⚙️ 아직 Supabase 데이터베이스가 연결되지 않았어요!</strong>
+      <p>현재는 테스트(임시 저장) 모드로 동작합니다. <code>app.js</code> 파일 상단에 <code>SUPABASE_URL</code>과 <code>SUPABASE_ANON_KEY</code>를 입력하면 모든 사람의 메모가 실시간으로 공유됩니다.</p>
+    </div>
+
+    <!-- 메모 작성 폼 -->
+    <section class="write-section">
+      <form id="memoForm" class="memo-form">
+        <div class="form-row">
+          <div class="input-group">
+            <label for="nickname">작성자 이름 (닉네임)</label>
+            <input
+              type="text"
+              id="nickname"
+              placeholder="예: 익명의 친구, 지호"
+              maxlength="20"
+              required
+            />
+          </div>
+
+          <div class="input-group">
+            <label>포스트잇 색상 선택</label>
+            <div class="color-picker" id="colorPicker">
+              <button type="button" class="color-btn yellow active" data-color="yellow" aria-label="노란색"></button>
+              <button type="button" class="color-btn pink" data-color="pink" aria-label="분홍색"></button>
+              <button type="button" class="color-btn blue" data-color="blue" aria-label="파란색"></button>
+              <button type="button" class="color-btn green" data-color="green" aria-label="초록색"></button>
+              <button type="button" class="color-btn purple" data-color="purple" aria-label="보라색"></button>
+            </div>
+          </div>
+        </div>
+
+        <div class="input-group">
+          <label for="content">남기고 싶은 말</label>
+          <textarea
+            id="content"
+            rows="3"
+            placeholder="여기에 따뜻한 메시지를 적어주세요... (최대 300자)"
+            maxlength="300"
+            required
+          ></textarea>
+        </div>
+
+        <button type="submit" id="submitBtn" class="submit-btn">
+          📌 롤링 페이퍼 붙이기
+        </button>
+      </form>
+    </section>
+
+    <!-- 메모 목록 상단 바 -->
+    <section class="board-header">
+      <h2>남겨진 포스트잇 <span id="memoCount" class="count-badge">0</span></h2>
+      <button id="refreshBtn" class="refresh-btn" type="button">🔄 새로고침</button>
+    </section>
+
+    <!-- 롤링 페이퍼 보드 (포스트잇들이 붙는 공간) -->
+    <main id="memoBoard" class="memo-board">
+      <div class="loading">포스트잇을 불러오는 중입니다...</div>
+    </main>
+  </div>
+
+  <script src="app.js"></script>
+</body>
+</html>
+
