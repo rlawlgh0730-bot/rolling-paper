@@ -1,13 +1,14 @@
 // ============================================================================
 // [중요] 아래 두 줄에 본인의 Supabase URL과 API Key(anon public)를 붙여넣으세요!
 // ============================================================================
-const SUPABASE_URL = "https://stzpbluilapjaadfzudz.supabase.co/rest/v1/";
-const SUPABASE_ANON_KEY = "https://stzpbluilapjaadfzudz.supabase.co/rest/v1/";
+const SUPABASE_URL = "https://stzpbluilapjaadfzudz.supabase.co";
+const SUPABASE_ANON_KEY = "sb_publishable_tQQFRauqEo1HfxXeKGy0ng_ERDdNBE2";
 
 // Supabase가 정상적으로 입력되었는지 확인
 const isSupabaseConfigured =
   SUPABASE_URL.startsWith("https://") &&
   SUPABASE_ANON_KEY.length > 20 &&
+  !SUPABASE_ANON_KEY.startsWith("https://") &&
   !SUPABASE_ANON_KEY.includes("여기에_");
 
 const supabaseClient = isSupabaseConfigured
